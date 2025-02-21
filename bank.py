@@ -6,5 +6,13 @@
 
 amount1 = 65
 amount2 = 180
+# or
+amountinEuros = (amount1+amount2)/100
 
-print(f"The sum is € {(int(amount1)+int(amount2))/100}")
+
+# Method 1
+print(f"The sum is € {(amount1+amount2)/100}")
+
+
+#Method 2
+print(f"The sum is € {amountinEuros}")
