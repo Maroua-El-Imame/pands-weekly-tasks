@@ -2,7 +2,7 @@
 # this program prints in euros the sum of two amounts in cents
 # by Maroua
 
-# a & b amounts displayed in cents , sum is displayed in euros
+# amount1 & amount2 amounts displayed in cents , sum is displayed in euros
 
 amount1 = 65
 amount2 = 180
