@@ -1,6 +1,6 @@
 # bank.py
 # this program prints in euros the sum of two amounts in cents
-# by Maroua
+# Author: Maroua EL imame
 
 amount1 = 65
 amount2 = 180
