@@ -1,12 +1,8 @@
 # acounts.py
-# this programs reads in a 10 character account number and outputs the account number with only the last 4 digits showing.
-# Author : Maroua El imame
-
+# this programs reads in a 10 character account number and outputs the 4 last digits of the added account number
+# Author: Maroua EL imame
 
 accountnumber= "1234567890"
-
-
-z=accountnumber.replace("123456" , "xxxxxx")
-
-enter10digitsaccountnumber = input("Enter your account number:")
-print(z)
+accountnumber= input("Enter your account:")
+z=accountnumber.replace(accountnumber[0:6] , "xxxxxx")
+print("Your account number's 4 last digits : " + z)
