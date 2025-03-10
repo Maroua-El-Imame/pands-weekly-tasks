@@ -5,6 +5,8 @@
 # if it is odd [ the program multiplies the odd number by 3 and adds 1 ]
 # The program ends when the current value is one.
 
+# Author : Maroua EL imame
+
 
 
                                                 # Variables and Values explained :          
