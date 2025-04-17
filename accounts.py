@@ -1,31 +1,37 @@
 # acounts.py
 # this programs reads in a 10 character account number and outputs its last 4 digits
-# it also reads in account number of any length and outputs its last 4 digits, too.
+# it also reads in account number of any length and outputs its last 4 digits.
 # Author: Maroua EL imame
 
+# Asking user to enter a 10 characters account number, not specifically digits. 
+accountnumber= input("Please enter an account number of 10 characters : ")
 
-accountnumber= str("1234567890")
-accountnumber= input("Enter your account number of 10 digits:")
-z=accountnumber.replace(accountnumber[0:6] , "xxxxxx")              # String replace method: it states the string length of the old value we want to replace by the new value. 
-print("Your account number's 4 last digits : " +str(z))             # it replaces the first 6 digits with xxxxxx
+# string replace method allows to replace the first 6 digits with xxxxxx    
+# I used the reference below to understand and apply slicing From the start & string replace method
+# reference 3.1 : https://www.w3schools.com/python/python_strings_slicing.asp#:~:text=Slice%20From%20the%20Start 
+# reference 3.2 : https://www.w3schools.com/python/ref_string_replace.asp
 
-# resources of solution 1 : 
-# Slicing From the Start & string replace () method
-# url : https://www.w3schools.com/python/python_strings_slicing.asp#:~:text=Slice%20From%20the%20Start
-# url : https://www.w3schools.com/python/ref_string_replace.asp
+# assigning a variable
+secure_account_number=accountnumber.replace(accountnumber[0:6] , "xxxxxx")      
 
+# print
+print("The account number's 4 last characters : " +str(secure_account_number)) 
 
-randomnumber = "1236547896541236654478963225"
-randomnumber= input("Enter yout account number of any length: ")
-y=randomnumber.replace(randomnumber[:-4],"xxxxxx")                   # String replace method: it states the string length of the old value we want to replace by the new value.
-print("Your account number's 4 last digits : " + str(y))             # negative indexing : it reverse the slice, it helps selecting items without needing to know the exact length of the list. 
-                                                                     # in this case : the slice starts at index 0 and ends until the 4th index form the end of the string. The slice (any length) is replaced by xxxxxx 
+#-------------------
 
+# user input
+randomnumber= input("Please enter an account number of any length : ")
 
+# using the reference below, I could learn more and practice slicing and negative indexing.
+# negative indexing reverses the slice and helps selecting items without needing to know the exact length of the list. 
+# in this case, the slice starts at index 0 and ends until the 4th index from the end of the string is reached. The slice of any length is replaced by xxxxxx 
+# reference 3.3 : https://www.w3schools.com/python/python_strings_slicing.asp#:~:text=Try%20it%20Yourself%20%C2%BB-,Negative%20Indexing,-Use%20negative%20indexes
+# reference 3.4 : https://www.w3schools.com/python/ref_string_replace.asp
+# reference 3.5 : https://stackoverflow.com/questions/509211/how-slicing-in-python-works#:~:text=part%20explains%20them.-,Negative%20indexes,-The%20very%20first
 
+# assigning a variable
+secure_random_account_number=randomnumber.replace(randomnumber[:-4],"xxxxxx")  
 
-# resources of solution 2 : negative indexing & string replace () method
-# url : https://www.w3schools.com/python/python_strings_slicing.asp#:~:text=Try%20it%20Yourself%20%C2%BB-,Negative%20Indexing,-Use%20negative%20indexes
-# url : https://www.w3schools.com/python/ref_string_replace.asp
-# url : https://stackoverflow.com/questions/509211/how-slicing-in-python-works#:~:text=part%20explains%20them.-,Negative%20indexes,-The%20very%20first
-
+# print
+print("The account number's 4 last digits : " + str(secure_random_account_number))            
+                                                                     
