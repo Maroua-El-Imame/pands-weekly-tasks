@@ -1,8 +1,7 @@
 # plottask.py
-# this program when run, displays 
+# this program when run, displays:
 # a histogram of a normal distribution of a 1000 values with a mean of 5 and standard deviation of 2. 
-# a plot of the function  h(x)=x**3 in the range 0 to 10,
-
+# a plot of the function h(x)=x**3 in the range 0 to 10,
 # Author : Maroua EL imame
 
 
@@ -10,58 +9,83 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# generate random numbers corresponding to 1000 values with a mean of 5 and standard deviation of 2 and assigne a value 'randomNumbers'
-randomNumbers = np.random.normal(loc=5, scale=2, size=1000)
+# generate random numbers corresponding to 1000 values with a mean of 5 and standard deviation of 2 and assigne a value 'random_numbers'
+random_numbers = np.random.normal(loc=5, scale=2, size=1000)
 
-# random.normal() method to get a normal data distribution.
-# loc   (Mean) where the peak of the bell exists.
-# scale (Standard Deviation) how flat the graph distribution should
-# size - The shape of the returned array.
+# random.normal() method to get a normal data distribution where 'random' is the random module in NumPy and .normal() the function that random numbers from a normal distribution.
+# loc   : mean (“centre”) of the distribution.
+# scale : standard deviation (spread or “width”) of the distribution
+# size  : samples
 
-# I used the resource below to learn more about the normal distributio
-# url: https://www.w3schools.com/python/numpy/numpy_random_normal.asp
+# I used the resource below to learn more about the normal distribution
+# reference 8.1 : https://www.w3schools.com/python/numpy/numpy_random_normal.asp
+# reference 8.2 : https://numpy.org/devdocs/reference/random/generated/numpy.random.normal.html#:~:text=numpy.random.normal%23,size%3DNone)
 
-# I was able to read documentation and get an understanding of the diferent parameters of plots and hitogram method through the links below. 
-# https://matplotlib.org/stable/tutorials/pyplot.html
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html
-
-
-# the following code will generate a histogram with specified parameters.
-# x: The data to be plotted.
-# bins=50: The number of bins.
-# density=True: Normalize the histogram.
-# facecolor='g': Set the color of the bars to green.
-# alpha=0.75: Set the transparency of the bars.
-
-
-# values  to be plotted 
-randomNumbers
+# documentations used to understand the different parameters of plots and hitogram method through the links below. 
+# reference 8.3 : https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html
+# reference 8.4 : https://matplotlib.org/stable/tutorials/pyplot.html
 
 # create a histogram of random numbers previously generated
-#n, bins, patches = plt.hist(randomNumbers, 45, density=True, facecolor='purple', alpha=0.45)
+# create a figure and axis
+fig, ((ax1, ax2)) = plt.subplots(nrows=1, ncols=2, sharex=False, constrained_layout=False, sharey=False,  figsize=(14,8),)
+
+# the following code will generate a histogram with specified parameters.
+# #values  to be plotted (random_numbers)
+# bins=16: this defines the number of equal-width bins in the range
+# density=True: Normalize the histogram.
+# facecolor=''  Set the color of the bars to green.
+# alpha= ' used to set the transparency of the bars.
 
 # method used to display Multiple Plots
 # https://www.w3schools.com/Python/matplotlib_subplot.asp
 
-# 1st plot 
+#--------------------------------------------------------
+# a . 1st plot 
+# the figure has 1 row, 2 columns, and this plot is the first plot.
 plt.subplot(1, 2, 1)
-plt.hist(randomNumbers, 45,density= True,facecolor='tab:brown', edgecolor ='k', alpha=0.8) 
-# I added a grid for easy lecture of corresponding point
+# plot a histogram
+plt.hist(random_numbers, 16,density= True, label= " Normal Distribution ", facecolor='green', edgecolor ='k', alpha=0.6) 
+# I added a grid ti simplify the reading
 plt.grid(True, alpha=0.5)
+# axis 
+ax1.set_title("Histogram of Normal Distribution (mean=5, std=2)" , c='dimgrey')
+ax1.set_xlabel(" samples", labelpad=20 ,fontsize=10 ,  weight='bold', c='k')
+ax1.set_ylabel(" frequency",fontsize=10,  weight='bold', color="seagreen")
+
+# add legend
+plt.legend()
+#--------------------------------------------------------
+
+# b. second  plot
+# plot of the function h(x)=x**3 in the range 0 to 10.
 
 # values to be plotted
-x = np.arange(0,10,1)
+# np.arange(), generates a range of numbers starting from 0, going up but not including 11. I used this range so the value 10 is shown in the plot.
+# the 0.1 is the step size or increment between each number in the generated array.
+x = np.arange(0,11,0.1) 
 y = x**3
-
-# create a plot 
+ 
+# the figure has 1 row, 2 columns, and this plot is the second plot.
 plt.subplot(1, 2, 2)
-plt.plot(x,y, c='tab:brown', alpha=0.8) 
+# plot
+plt.plot(x,y, label="   h(x)=x**3        ", c='g', alpha=0.5) 
 # I added a grid for easy lecture of corresponding point
 plt.grid(True, alpha=0.5)
+# axis 
+ax2.set_title(" y = x**3 in the range 0 to 10", c='dimgrey')
+ax2.set_xlabel(" x", labelpad=20, fontsize= 10 ,  weight='bold', c='k')
+ax2.set_ylabel( "y=x**3",fontsize=10,  weight='bold', color="seagreen")
 
+# addlegend
+plt.legend()
 
-# method used to display Multiple Plots
-# https://www.w3schools.com/Python/matplotlib_subplot.asp
+# additional resource to make the axis labels look nice
+# reference 8.5 : https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text.set_fontstyle:~:text=set_fontstyle(fontstyle,normal%27%2C%20%27italic%27%2C%20%27oblique%27%7D
+# reference 8.6 : https://matplotlib.org/stable/api/_as_gen/matplotlib.figure.Figure.set_constrained_layout_pads.html
+# reference 8.7 : https://matplotlib.org/stable/gallery/color/named_colors.html
+
+# save the plots generated by this code
+plt.savefig("plttask.png")
 
 # show
 plt.show()
